@@ -14,12 +14,14 @@ COMMIT_MESSAGE = full
 
 
 def alter_file(file):
-    with open(file, "a") as f:
+    with open(file, "r") as in_file:
+        buf = in_file.readlines()
 
-        # read a list of lines into data
-        data = file.readlines()
-        data[38] = full + "\n"
-        f.write(data)
+    with open(file, "w") as out_file:
+        for line in buf:
+            if line == "; Include this text\n":
+                line = line + "Include below\n"
+            out_file.write(line)
 
 
 def git_push():
@@ -30,7 +32,7 @@ def git_push():
         origin = repo.remote(name='origin')
         origin.push()
     except:
-	print('Some error occured while pushing the code')
+        print('Some error occured while pushing the code')
 
 
 print(full)
@@ -38,5 +40,4 @@ print(full)
 alter_file(file)
 
 git_push()
-
 
