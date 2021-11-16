@@ -26,7 +26,7 @@ year = todays_date.year
 month = todays_date.month
 day = todays_date.day
 value = 0
-
+value_raw = 0
 # insert your API key here
 API_KEY = '20yrbsOgJltKYbi4xNzPWrkR9WT'
 
@@ -36,8 +36,9 @@ res = requests.get('https://api.glassnode.com/v1/metrics/derivatives/futures_fun
 
 json_str = json.loads(res.text)
 print(json_str[0]['o']['mean'])
-value = json_str[0]['o']['mean']
-
+value_raw = json_str[0]['o']['mean']
+value_raw = value_raw * 100
+value = round(value_raw, 3)
 
 def alter_file(file):
     with open(file, "r") as in_file:
