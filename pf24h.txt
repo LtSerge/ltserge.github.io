@@ -47,6 +47,3 @@ plot(d, 'Futures Perpetual Funding Rate', color.new(color.green, 0), 2, plot.sty
 
 // This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
 // © ltserge
-
-
-
