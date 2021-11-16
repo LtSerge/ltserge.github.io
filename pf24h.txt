@@ -38,18 +38,3 @@ d := t == timestamp(2021, 11, 14, 0, 0, 0) ? 0.005 : d
 d := t == timestamp(2021, 11, 15, 0, 0, 0) ? 0.016 : d
 d := t == timestamp(NEW, 11, 15, 0, 0, 0) ? 0.016 : d
 d := t == timestamp(NEW, 11, 15, 0, 0, 0) ? 0.016 : d
-//Include Above
-
-isUpALot = d >= .03
-isUp = d >= 0.02
-isDown = d >= 0.01
-isDownALot = d < 0.01
-
-barcolor(isUpALot ? color.red : isUp ? color.orange : isDown ? color.blue : isDownALot ? color.navy : na)
-plot(d, 'Futures Perpetual Funding Rate', color.new(color.green, 0), 2, plot.style_columns)
-
-// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
-// © ltserge
-
-
-
