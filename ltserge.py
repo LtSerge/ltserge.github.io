@@ -12,6 +12,10 @@ file = "ltserge.github.io/pf24h.txt"
 
 COMMIT_MESSAGE = full
 
+year = 2000
+month = 11
+day = 99
+
 
 def alter_file(file):
     with open(file, "r") as in_file:
@@ -19,8 +23,8 @@ def alter_file(file):
 
     with open(file, "w") as out_file:
         for line in buf:
-            if line == "; Include this text\n":
-                line = line + "Include below\n"
+            if line == "//Include Above\n":
+                line = f"d := t == timestamp({year}, {month}, {day}, 0, 0, 0) ? 0.016 : d\n" + line
             out_file.write(line)
 
 
@@ -40,4 +44,3 @@ print(full)
 alter_file(file)
 
 git_push()
-
