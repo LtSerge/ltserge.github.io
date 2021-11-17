@@ -1,7 +1,7 @@
 from git import Repo
 import datetime
 import time
-from datetime import date
+from datetime import date, timedelta
 import json
 import requests
 
@@ -18,13 +18,14 @@ COMMIT_MESSAGE = full
 
 # unix time for api
 unix_time = int(time.time())
+print('--------------')
+print(COMMIT_MESSAGE)
+print('Unix Code: ')
 print(unix_time)
 # creating the date object of today's date
 todays_date = date.today()
-print(todays_date)
-year = todays_date.year
-month = todays_date.month
-day = todays_date.day
+# print('Today Date: ' + todays_date)
+
 value = 0
 value_raw = 0
 # insert your API key here
@@ -35,10 +36,19 @@ res = requests.get('https://api.glassnode.com/v1/metrics/derivatives/futures_fun
                    params={'a': 'BTC', 'api_key': API_KEY, 'f': 'JSON', 'i': '24h', 's': unix_time})
 
 json_str = json.loads(res.text)
-print(json_str[0]['o']['mean'])
 value_raw = json_str[0]['o']['mean']
 value_raw = value_raw * 100
 value = round(value_raw, 3)
+print('Daily Perp Funding All Exch: ')
+print(value)
+
+today = datetime.date.today()
+yesterday = today - datetime.timedelta(days=1)
+
+day = yesterday.day
+year = yesterday.year
+month = yesterday.month
+
 
 def alter_file(file):
     with open(file, "r") as in_file:
@@ -58,11 +68,11 @@ def git_push():
         repo.index.commit(COMMIT_MESSAGE)
         origin = repo.remote(name='origin')
         origin.push()
+        print('--------------')
     except:
         print('Some error occured while pushing the code')
+        print('--------------')
 
-
-print(full)
 
 alter_file(file)
 
