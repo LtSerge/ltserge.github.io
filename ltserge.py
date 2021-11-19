@@ -34,10 +34,10 @@ API_KEY = '20yrbsOgJltKYbi4xNzPWrkR9WT'
 # make API request
 try:
     res = requests.get('https://api.glassnode.com/v1/metrics/derivatives/futures_funding_rate_perpetual_all',
-                   params={'a': 'BTC', 'api_key': API_KEY, 'f': 'JSON', 'i': '24h', 's': unix_time})
+                       params={'a': 'BTC', 'api_key': API_KEY, 'f': 'JSON', 'i': '24h', 's': unix_time})
 except  requests.ConnectionError:
     print('The Value from Glassnode did not arrive')
-    
+
 json_str = json.loads(res.text)
 value_raw = json_str[0]['o']['mean']
 value_raw = value_raw * 100
