@@ -58,6 +58,7 @@ d := t == timestamp(2021, 12, 5, 0, 0, 0) ? -0.009 : d
 d := t == timestamp(2021, 12, 6, 0, 0, 0) ? 0.005 : d
 d := t == timestamp(2021, 12, 7, 0, 0, 0) ? 0.004 : d
 d := t == timestamp(2021, 12, 8, 0, 0, 0) ? 0.004 : d
+d := t == timestamp(2021, 12, 9, 0, 0, 0) ? 0.005 : d
 //Include Above
 
 isUpALot = d >= .03
