@@ -1,0 +1,51 @@
+indicator('Futures Perpetual Funding Rate')
+//@version=5
+
+float d = na
+t = timestamp(year, month, dayofmonth, 0, 0, 0)
+d := t == timestamp(2021, 10, 15, 0, 0, 0) ? 0.024 : d
+d := t == timestamp(2021, 10, 16, 0, 0, 0) ? 0.026 : d
+d := t == timestamp(2021, 10, 17, 0, 0, 0) ? 0.028 : d
+d := t == timestamp(2021, 10, 18, 0, 0, 0) ? 0.007 : d
+d := t == timestamp(2021, 10, 19, 0, 0, 0) ? 0.011 : d
+d := t == timestamp(2021, 10, 20, 0, 0, 0) ? 0.045 : d
+d := t == timestamp(2021, 10, 21, 0, 0, 0) ? 0.027 : d
+d := t == timestamp(2021, 10, 22, 0, 0, 0) ? 0.013 : d
+d := t == timestamp(2021, 10, 23, 0, 0, 0) ? 0.015 : d
+d := t == timestamp(2021, 10, 24, 0, 0, 0) ? 0.021 : d
+d := t == timestamp(2021, 10, 25, 0, 0, 0) ? 0.015 : d
+d := t == timestamp(2021, 10, 26, 0, 0, 0) ? 0.017 : d
+d := t == timestamp(2021, 10, 27, 0, 0, 0) ? 0.009 : d
+d := t == timestamp(2021, 10, 28, 0, 0, 0) ? 0.016 : d
+d := t == timestamp(2021, 10, 29, 0, 0, 0) ? 0.012 : d
+d := t == timestamp(2021, 10, 30, 0, 0, 0) ? 0.013 : d
+d := t == timestamp(2021, 10, 31, 0, 0, 0) ? 0.015 : d
+d := t == timestamp(2021, 11, 01, 0, 0, 0) ? 0.023 : d
+d := t == timestamp(2021, 11, 02, 0, 0, 0) ? 0.041 : d
+d := t == timestamp(2021, 11, 03, 0, 0, 0) ? 0.023 : d
+d := t == timestamp(2021, 11, 04, 0, 0, 0) ? 0.011 : d
+d := t == timestamp(2021, 11, 05, 0, 0, 0) ? 0.019 : d
+d := t == timestamp(2021, 11, 06, 0, 0, 0) ? 0.013 : d
+d := t == timestamp(2021, 11, 07, 0, 0, 0) ? 0.018 : d
+d := t == timestamp(2021, 11, 08, 0, 0, 0) ? 0.025 : d
+d := t == timestamp(2021, 11, 09, 0, 0, 0) ? 0.030 : d
+d := t == timestamp(2021, 11, 10, 0, 0, 0) ? 0.020 : d
+d := t == timestamp(2021, 11, 11, 0, 0, 0) ? 0.010 : d
+d := t == timestamp(2021, 11, 12, 0, 0, 0) ? 0.009 : d
+d := t == timestamp(2021, 11, 13, 0, 0, 0) ? 0.006 : d
+d := t == timestamp(2021, 11, 14, 0, 0, 0) ? 0.005 : d
+d := t == timestamp(2021, 11, 15, 0, 0, 0) ? 0.016 : d
+d := t == timestamp(2021, 11, 16, 0, 0, 0) ? 0.006 : d
+d := t == timestamp(2021, 11, 17, 0, 0, 0) ? 0.008 : d
+//Include Above
+
+isUpALot = d >= .03
+isUp = d >= 0.02
+isDown = d >= 0.01
+isDownALot = d < 0.01
+
+barcolor(isUpALot ? color.red : isUp ? color.orange : isDown ? color.blue : isDownALot ? color.navy : na)
+plot(d, 'Futures Perpetual Funding Rate', color.new(color.green, 0), 2, plot.style_columns)
+
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © ltserge
