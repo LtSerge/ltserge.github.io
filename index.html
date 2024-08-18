@@ -15,7 +15,7 @@
     /* Tablet styles */@media (min-width: 577px) and (max-width: 768px) {
         .header-text {
             color: green;
-            font-size: 0.85rem; /* Slightly larger font size on tablets but still smaller than default */
+            font-size: 0.85rem; /* Slightly larger font size on tablets */
         }
         .header-recommended {
             color: green;
@@ -40,7 +40,11 @@
     }
 </style></head><body><nav class="navbar navbar-expand-lg navbar-light bg-light"><div class="container-fluid"><a class="navbar-brand" href="http://ltserge.com">My Site</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" aria-current="page" href="http://ltserge.com">Homepage</a></li></ul></div></div></nav><div class="container-fluid mt-4"><div class="row"><div class="col-2 bg-light bordered"><p class="header-text">Filter By Category</p></div><div class="col-8 bg-white bordered"><div class="jumbotron text-center p-4 my-4 bg-light"><h1 class="display-4"><ahref="https://twitter.com/leetserge"target="_blank"class="text-decoration-none">@leetserge</a></h1><p class="lead">This website is a video blog of my favorite content<br>
-                    (Work In Progress - last updated - Aug 16th, 2024)
-                </p></div></div><div class="col-2 bg-light bordered"><p class="header-recommended">Recommended Videos</p></div></div></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                    (Work In Progress - last updated - Aug 16th, 2024)<br><span id="viewport-width">Viewport width: </span></p></div></div><div class="col-2 bg-light bordered"><p class="header-recommended">Recommended Videos</p></div></div></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script></body></html>
+    crossorigin="anonymous"></script><script>functionupdateViewportWidth() {
+        document.getElementById('viewport-width').innerHTML = 'Viewport width: ' + window.innerWidth + 'px';
+    }
+    window.onresize = updateViewportWidth;
+    window.onload = updateViewportWidth;
+</script></body></html>
